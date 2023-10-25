@@ -24,6 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setDataSet(array $DataSet) 设置单次详情数据
  * @method integer getTotalNumber() 获取符合条件的数据总数
  * @method void setTotalNumber(integer $TotalNumber) 设置符合条件的数据总数
+ * @method string getScrollID() 获取es scroll查询的id
+ * @method void setScrollID(string $ScrollID) 设置es scroll查询的id
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
@@ -40,6 +42,11 @@ class DescribeDetailedSingleProbeDataResponse extends AbstractModel
     public $TotalNumber;
 
     /**
+     * @var string es scroll查询的id
+     */
+    public $ScrollID;
+
+    /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
@@ -47,6 +54,7 @@ class DescribeDetailedSingleProbeDataResponse extends AbstractModel
     /**
      * @param array $DataSet 单次详情数据
      * @param integer $TotalNumber 符合条件的数据总数
+     * @param string $ScrollID es scroll查询的id
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -73,6 +81,10 @@ class DescribeDetailedSingleProbeDataResponse extends AbstractModel
 
         if (array_key_exists("TotalNumber",$param) and $param["TotalNumber"] !== null) {
             $this->TotalNumber = $param["TotalNumber"];
+        }
+
+        if (array_key_exists("ScrollID",$param) and $param["ScrollID"] !== null) {
+            $this->ScrollID = $param["ScrollID"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
